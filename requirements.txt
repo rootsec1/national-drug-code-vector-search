@@ -1,0 +1,7 @@
+torch
+torchvision
+numpy
+pandas
+sentence_transformers
+chromadb
+tqdm
