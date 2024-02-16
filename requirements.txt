@@ -6,3 +6,4 @@ sentence_transformers
 chromadb
 tqdm
 sheet2api
+pysqlite3-binary
