@@ -35,7 +35,7 @@ def main():
     collection = get_ndc_vector_db_collection(vector_db_client)
 
     # Query the collection
-    query = "Albuterol"
+    query = "Levothyroxine tablet 50mcg"
     query_embedding = embed_sentence(query, similarity_model, TF_DEVICE)
 
     results = collection.query(
