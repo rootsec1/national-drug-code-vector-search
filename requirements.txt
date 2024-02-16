@@ -5,3 +5,4 @@ pandas
 sentence_transformers
 chromadb
 tqdm
+sheet2api

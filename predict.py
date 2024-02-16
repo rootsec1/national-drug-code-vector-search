@@ -1,7 +1,27 @@
 from constants import *
 from train import *
+from sheet2api import Sheet2APIClient
 
-import json
+
+def export_search_results_to_sheet(results, user_query):
+    print("Exporting first result to sheet")
+    client = Sheet2APIClient(
+        api_url="https://sheet2api.com/v1/9jLJI7TjaBFT/ss_rl_testing"
+    )
+    dict_results = dict(results)
+    main_result = dict_results["metadatas"][0][0]
+    summary = main_result["SUMMARY"]
+    product_id = main_result["PRODUCTID"]
+    client.create_row(
+        sheet='Sheet1',
+        row={
+            "query": user_query,
+            "result_summary": summary,
+            "result_product_id": product_id,
+            "score": 0
+        }
+    )
+    print("Export completed")
 
 
 def main():
@@ -22,7 +42,7 @@ def main():
         query_embeddings=query_embedding,
         n_results=5
     )
-    print(json.dumps(results))
+    export_search_results_to_sheet(results, query)
 
 
 if __name__ == "__main__":
