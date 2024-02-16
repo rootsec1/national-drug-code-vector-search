@@ -3,6 +3,6 @@ torchvision
 numpy
 pandas
 sentence_transformers
-sqlite3
 chromadb
 tqdm
+pysqlite3-binary
